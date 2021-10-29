@@ -10,6 +10,9 @@ class Java_test extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'tests',
+    ];
 
     public function getTests(){
 
