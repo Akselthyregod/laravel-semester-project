@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLiveBatchTable extends Migration
+class CreateLiveBatchesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateLiveBatchTable extends Migration
      */
     public function up()
     {
-        Schema::create('live_batch', function (Blueprint $table) {
+        Schema::create('live_batches', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->integer("prod_processed_count");

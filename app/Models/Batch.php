@@ -13,6 +13,6 @@ class Batch extends Model
       'id',
       'stopID',
         'product_id',
-        'Amount'
+        'amount'
     ];
 }

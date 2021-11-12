@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Batch;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -18,5 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(JavaTestSeeder::class);
         $this->call(ProductSeeder::class);
         $this->call(Stop_reasonSeeder::class);
+        $this->call(BatchSeeder::class);
+        $this->call(Live_batchSeeder::class);
     }
 }
