@@ -16,11 +16,12 @@ class CreateBatchesTable extends Migration
         Schema::create('batches', function (Blueprint $table) {
             $table->id(); //batchid
             $table->timestamps();
-            $table->unsignedBigInteger("productID");
-            $table->foreign("productID")->references("id")->on("Products")->onDelete("cascade");
+            $table->UnsignedBigInteger("product_id");
+            $table->foreign("product_id")->references("id")->on("products")->onDelete("cascade");
 
-            $table->unsignedBigInteger("stopID");
-            $table->foreign("stopID")->references("id")->on("Stop_Reasons")->onDelete("cascade");
+            $table->UnsignedBigInteger("stopID");
+            $table->foreign("stopID")->references("id")->on("stop_reasons")->onDelete("cascade");
+            $table ->integer("Amount");
 
 
 
