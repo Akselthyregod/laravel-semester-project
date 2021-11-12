@@ -14,7 +14,7 @@ class CreateStopReasonsTable extends Migration
     public function up()
     {
         Schema::create('stop_reasons', function (Blueprint $table) {
-            $table->id();
+            $table->id()->startingValue(10);
             $table->timestamps();
             $table->string("description");
         });

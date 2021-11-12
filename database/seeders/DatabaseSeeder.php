@@ -16,5 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(10)->create();
         $this->call(JavaTestSeeder::class);
+        $this->call(ProductSeeder::class);
+        $this->call(Stop_reasonSeeder::class);
     }
 }

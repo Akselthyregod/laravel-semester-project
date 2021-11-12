@@ -16,12 +16,12 @@ class CreateLiveBatchTable extends Migration
         Schema::create('live_batch', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer("ProdProcessedCount");
-            $table->integer("ProdDefectiveCount");
-            $table->float("MachSpeed");
-            $table->float("Humidity");
-            $table->float("Temperature");
-            $table->float("Vibration");
+            $table->integer("prod_processed_count");
+            $table->integer("prod_defective_count");
+            $table->float("mach_speed");
+            $table->float("humidity");
+            $table->float("temperature");
+            $table->float("vibration");
         });
     }
 
