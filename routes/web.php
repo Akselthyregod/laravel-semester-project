@@ -15,3 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [TestController::class, 'index']);
+
+Route::get('/batch', [\App\Http\Controllers\BatchController::class, 'index']);
+
+Route::get('/batch/create', [\App\Http\Controllers\BatchController::class, 'create']);
+
+Route::get('/batch/result', [\App\Http\Controllers\BatchController::class, 'result']);
