@@ -12,6 +12,6 @@ class TestController extends Controller
 
         $tests = Java_test::all();
 
-        return view("index", ['tests' => $tests]);
+        return view("index2", ['tests' => $tests]);
     }
 }
