@@ -21,6 +21,7 @@
     @foreach($products as $product)
         <li class="list-group-item">{{$product->description}}</li>
     @endforeach
+    test
 </ul>
 </div>
 </body>
