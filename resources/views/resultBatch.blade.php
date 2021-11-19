@@ -9,6 +9,6 @@
 </head>
 <body>
 <h1>Batch report</h1>
-<a href="/">Back</a>
+<a href="/batch">Back</a>
 </body>
 </html>

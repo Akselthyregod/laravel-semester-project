@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TestController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [TestController::class, 'index']);
+
+Route::get('/index2', [TestController::class, 'index2']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/batch', [\App\Http\Controllers\BatchController::class, 'index']);
+
+Route::get('/batch/create', [\App\Http\Controllers\BatchController::class, 'create']);
+
+Route::get('/batch/result', [\App\Http\Controllers\BatchController::class, 'result']);
