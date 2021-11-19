@@ -1,3 +1,5 @@
+@extends('layouts.app')
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,8 +10,20 @@
     <title>Create batch</title>
     <link rel="stylesheet" href="{{URL::asset('css/styling.css')}}">
 </head>
+@section('content')
 <body>
 <h1>Create batch</h1>
 <a href="/">Back</a>
+<div class ="dropdown-show">
+<form action="">
+    <label for="beers">Choose a beer</label>
+    <select name="beers" id="beers">
+        @foreach($products as $product)
+            <option value="product">{{$product->description}}</option>
+        @endforeach
+    </select>
+</form>
+</div>
 </body>
+@endsection
 </html>
