@@ -39,14 +39,14 @@
     </tbody>
 </table>
 <div class="controls">
-<form action="" method="post">
+<form action="/batch" method="post">
     @csrf
 <div class="btn-group-vertical">
-    <button type="button" class="btn btn-secondary btn-lg">Reset</button>
-    <button type="button" class="btn btn-success btn-lg">Start</button>
-    <button type="button" class="btn btn-warning btn-lg">Stop</button>
-    <button type="button" class="btn btn-danger btn-lg">Abort</button>
-    <button type="button" class="btn btn-dark btn-lg">Clear</button>
+    <button type="submit" name="cmd" value="1" class="btn btn-secondary btn-lg">Reset</button>
+    <button type="submit" name="cmd" value="2" class="btn btn-success btn-lg">Start</button>
+    <button type="submit" name="cmd" value="3" class="btn btn-warning btn-lg">Stop</button>
+    <button type="submit" name="cmd" value="4" class="btn btn-danger btn-lg">Abort</button>
+    <button type="submit" name="cmd" value="5" class="btn btn-dark btn-lg">Clear</button>
 </div>
 </form>
 </div>

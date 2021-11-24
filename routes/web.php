@@ -25,6 +25,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/batch', [\App\Http\Controllers\BatchController::class, 'index']);
 
+Route::post('/batch', [\App\Http\Controllers\BatchController::class, 'command']);
+
 Route::get('/batch/create', [\App\Http\Controllers\BatchController::class, 'create']);
 
 Route::get('/batch/result', [\App\Http\Controllers\BatchController::class, 'result']);
