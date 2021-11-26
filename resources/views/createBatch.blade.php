@@ -14,16 +14,33 @@
 <body>
 <h1>Create batch</h1>
 <a href="/">Back</a>
-<div class ="dropdown-show">
-<form action="">
-    <label for="beers">Choose a beer</label>
-    <select name="beers" id="beers">
-        @foreach($products as $product)
-            <option value="product">{{$product->description}}</option>
-        @endforeach
-    </select>
+<form action="/batch/create" method="post">
+    @csrf
+    <div class ="dropdown-show">
+        <label for="beers">Choose a beer</label>
+            <select name="beers" id="beers">
+                <option value="1">Pilsner</option>
+                <option value="2">Wheat</option>
+                <option value="3">IPA</option>
+                <option value="4">Stout</option>
+                <option value="5">Ale</option>
+                <option value="6">Alcohol Free</option>
+            </select>
+    </div>
+    <div class="form-check">
+        <input type="radio" id="liter1" name="amount" value="1">
+        <label for="liter1">1 litre</label><br>
+        <input type="radio" id="liter2" name="amount" value="2">
+        <label for="liter2">2 litres</label><br>
+        <input type="radio" id="liter3" name="amount" value="3">
+        <label for="liter3">3 litres</label><br>
+        <input type="radio" id="liter4" name="amount" value="4">
+        <label for="liter4">4 litres</label><br>
+    </div>
+    <div class="btn-group-vertical">
+        <button type="submit" name="batch" class="btn btn-primary btn-lg">Create</button>
+    </div>
 </form>
-</div>
 </body>
 @endsection
 </html>

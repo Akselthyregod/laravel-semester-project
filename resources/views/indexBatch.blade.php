@@ -50,6 +50,14 @@
 </div>
 </form>
 </div>
+<br>
+    @foreach($ingredient as $ingredient)
+        <h4>{{$ingredient->product}}</h4>
+        <div class="progressBar">
+            <div class="progress-bar" role="progressbar" style="width: {{$ingredient->amount}}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">{{$ingredient->amount}}</div>
+        </div>
+    @endforeach
+<br>
 <div>
     <a href="/batch/result">View batch report</a>
 </div>
