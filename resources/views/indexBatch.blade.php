@@ -19,6 +19,8 @@
     <th scope="col">ID</th>
     <th scope="col">Created at</th>
     <th scope="col">Updated at</th>
+    <th scope="col">Processed</th>
+    <th scope="col">Defective</th>
     <th scope="col">Speed</th>
     <th scope="col">Humidity</th>
     <th scope="col">Temperature</th>
@@ -30,6 +32,8 @@
             <th scope="row">{{$batch->id}}</th>
             <td>{{$batch->created_at}}</td>
             <td>{{$batch->updated_at}}</td>
+            <td>{{$batch->prod_processed_count}}</td>
+            <td>{{$batch->prod_defective_count}}</td>
             <td>{{$batch->mach_speed}}</td>
             <td>{{$batch->humidity}}</td>
             <td>{{$batch->temperature}}</td>
@@ -54,7 +58,7 @@
     @foreach($ingredient as $ingredient)
         <h4>{{$ingredient->product}}</h4>
         <div class="progressBar">
-            <div class="progress-bar" role="progressbar" style="width: {{$ingredient->amount}}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">{{$ingredient->amount}}</div>
+            <div class="progress-bar" role="progressbar" style="width: {{$ingredient->amount}}%" aria-valuenow="35000" aria-valuemin="0" aria-valuemax="35000">{{$ingredient->amount}}</div>
         </div>
     @endforeach
 <br>

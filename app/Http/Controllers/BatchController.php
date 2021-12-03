@@ -7,6 +7,7 @@ use App\Models\Command;
 use App\Models\Ingredients;
 use App\Models\Java_test;
 use App\Models\Live_batch;
+use App\Models\newbatch;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -28,12 +29,21 @@ class BatchController extends Controller
         return view("createBatch", ['batch' => $batch, 'products' => $products]);
     }
 
-    function create(Batch $batch){
-        $batch->product_id = \request()->get('beers');
-        $batch->amount = \request()->get('amount');
-        $batch->save();
+
+
+    function create() {
+
+        $batch = request()->validate([
+            'product_id' => ['required'],
+            'amount'=> ['required', 'max:65535'],
+            'speed' =>  ['required', 'max: 600']
+
+        ]);
+
+        newBatch::create($batch);
 
         return redirect()->to('/batch');
+
     }
 
     function result(){

@@ -16,13 +16,6 @@
 <h1>Beer brewing machine</h1>
 <a href="/batch/create">Create batch</a> <br>
 <a href="/batch">View batch</a>
-<div>
-<ul class="list-group">
-    @foreach($products as $product)
-        <li class="list-group-item">{{$product->description}}</li>
-    @endforeach
-</ul>
-</div>
 </body>
 @endsection
 </html>

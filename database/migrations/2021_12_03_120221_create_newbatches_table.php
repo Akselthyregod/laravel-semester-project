@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBatchesTable extends Migration
+class CreateNewbatchesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,15 @@ class CreateBatchesTable extends Migration
      */
     public function up()
     {
-        Schema::create('batches', function (Blueprint $table) {
-            $table->integer("id"); //batchid
+        Schema::create('newbatches', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
             $table->UnsignedBigInteger("product_id");
-            $table->foreign("product_id")->references("id")->on("products")->onDelete("cascade");
-
-            $table->UnsignedBigInteger("stopID");
-            $table->foreign("stopID")->references("id")->on("stop_reasons")->onDelete("cascade");
             $table ->integer("amount");
-
-
-
-
+            $table->integer("speed");
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -35,6 +29,6 @@ class CreateBatchesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('batches');
+        Schema::dropIfExists('newbatches');
     }
 }
