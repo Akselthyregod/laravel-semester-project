@@ -16,23 +16,23 @@ class ingredientsSeeder extends Seeder
     {
         ingredients::create([
             'product'=>'Barley',
-            'amount' => '35000'
+            'amount' => 35000.0
         ]);
         ingredients::create([
             'product'=>'Malt',
-            'amount' => '35000'
+            'amount' => 35000.0
         ]);
         ingredients::create([
             'product'=>'Hops',
-            'amount' => '35000'
+            'amount' => 35000.0
         ]);
         ingredients::create([
             'product'=>'Wheat',
-            'amount' => '35000'
+            'amount' => 35000.0
         ]);
         ingredients::create([
             'product'=>'Yeast',
-            'amount' => '35000'
+            'amount' => 35000.0
         ]);
     }
 }
