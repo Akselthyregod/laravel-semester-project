@@ -32,3 +32,5 @@ Route::get('/batch/create', [\App\Http\Controllers\BatchController::class, 'view
 Route::post('/batch/create', [\App\Http\Controllers\BatchController::class, 'create']);
 
 Route::get('/batch/result', [\App\Http\Controllers\BatchController::class, 'result']);
+
+Route::get('/ingredients', [\App\Http\Controllers\BatchController::class, 'ingredients']);

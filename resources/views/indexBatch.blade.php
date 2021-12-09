@@ -8,6 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Beer brewer</title>
     <link rel="stylesheet" href="{{URL::asset('css/styling.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/jsdoc.js"></script>
 </head>
 <body>
 @section('content')
@@ -55,12 +57,16 @@
 </form>
 </div>
 <br>
+<button class="update" onClick="window.location.reload();">Update</button>
+<div class="ingredients">
     @foreach($ingredient as $ingredient)
-        <h4>{{$ingredient->product}}</h4>
-        <div class="progressBar">
-            <div class="progress-bar" role="progressbar" style="width: {{$ingredient->amount}}%" aria-valuenow="35000" aria-valuemin="0" aria-valuemax="35000">{{$ingredient->amount}}</div>
+        <h4>{{$ingredient->product}}: {{$ingredient->amount}}</h4>
+       <div class="progressBar">
+            <div class="progress-bar" role="progressbar" style="width: calc({{$ingredient->amount}}% / 350)"><span class="testing">{{$ingredient->amount}}</span></div>
         </div>
     @endforeach
+</div>
+<span class="tester"></span>
 <br>
 <div>
     <a href="/batch/result">View batch report</a>

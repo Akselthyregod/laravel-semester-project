@@ -19,7 +19,10 @@ class BatchController extends Controller
         $cmd = Command::all();
         $ingredient = Ingredients::all();
 
-        return view("indexBatch", ['batch' => $batch, 'cmd' => $cmd, 'ingredient' => $ingredient]);
+        $test = DB::table('ingredients')
+            ->where('id',1)->value('amount');
+
+        return view("indexBatch", ['batch' => $batch, 'cmd' => $cmd, 'ingredient' => $ingredient, 'test'=>$test]);
     }
 
     function view(){
@@ -40,7 +43,17 @@ class BatchController extends Controller
 
         ]);
 
+        $livebatch = request()->validate([
+            'prod_processed_count' => ['required'],
+            'prod_defective_count' => ['required'],
+            'mach_speed' => ['required', 'max: 600'],
+            'humidity' => ['required'],
+            'temperature' => ['required'],
+            'vibration' => ['required']
+        ]);
+
         newBatch::create($batch);
+        Live_batch::create($livebatch);
 
         return redirect()->to('/batch');
 
@@ -57,5 +70,11 @@ class BatchController extends Controller
         $cmd->save();
 
         return redirect()->to('/batch');
+    }
+
+    function ingredients() {
+        $ingredient = Ingredients::all();
+
+        return view("pollingtest", ['ingredient' => $ingredient]);
     }
 }

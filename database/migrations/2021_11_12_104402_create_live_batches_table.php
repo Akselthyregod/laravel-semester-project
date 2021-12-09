@@ -16,12 +16,15 @@ class CreateLiveBatchesTable extends Migration
         Schema::create('live_batches', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->unsignedBigInteger('productID')->nullable();
             $table->integer("prod_processed_count");
             $table->integer("prod_defective_count");
             $table->float("mach_speed");
             $table->float("humidity");
             $table->float("temperature");
             $table->float("vibration");
+
+            $table->foreign('productID')->references('id')->on('newbatches');
         });
     }
 
