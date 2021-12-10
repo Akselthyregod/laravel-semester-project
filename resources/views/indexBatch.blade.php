@@ -8,6 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Beer brewer</title>
     <link rel="stylesheet" href="{{URL::asset('css/styling.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/jsdoc.js"></script>
 </head>
 <body>
 @section('content')
@@ -19,6 +21,8 @@
     <th scope="col">ID</th>
     <th scope="col">Created at</th>
     <th scope="col">Updated at</th>
+    <th scope="col">Processed</th>
+    <th scope="col">Defective</th>
     <th scope="col">Speed</th>
     <th scope="col">Humidity</th>
     <th scope="col">Temperature</th>
@@ -30,6 +34,8 @@
             <th scope="row">{{$batch->id}}</th>
             <td>{{$batch->created_at}}</td>
             <td>{{$batch->updated_at}}</td>
+            <td>{{$batch->prod_processed_count}}</td>
+            <td>{{$batch->prod_defective_count}}</td>
             <td>{{$batch->mach_speed}}</td>
             <td>{{$batch->humidity}}</td>
             <td>{{$batch->temperature}}</td>
@@ -39,17 +45,29 @@
     </tbody>
 </table>
 <div class="controls">
-<form action="" method="post">
+<form action="/batch" method="post">
     @csrf
 <div class="btn-group-vertical">
-    <button type="button" class="btn btn-secondary btn-lg">Reset</button>
-    <button type="button" class="btn btn-success btn-lg">Start</button>
-    <button type="button" class="btn btn-warning btn-lg">Stop</button>
-    <button type="button" class="btn btn-danger btn-lg">Abort</button>
-    <button type="button" class="btn btn-dark btn-lg">Clear</button>
+    <button type="submit" name="cmd" value="1" class="btn btn-secondary btn-lg">Reset</button>
+    <button type="submit" name="cmd" value="2" class="btn btn-success btn-lg">Start</button>
+    <button type="submit" name="cmd" value="3" class="btn btn-warning btn-lg">Stop</button>
+    <button type="submit" name="cmd" value="4" class="btn btn-danger btn-lg">Abort</button>
+    <button type="submit" name="cmd" value="5" class="btn btn-dark btn-lg">Clear</button>
 </div>
 </form>
 </div>
+<br>
+<button class="update" onClick="window.location.reload();">Update</button>
+<div class="ingredients">
+    @foreach($ingredient as $ingredient)
+        <h4>{{$ingredient->product}}: {{$ingredient->amount}}</h4>
+       <div class="progressBar">
+            <div class="progress-bar" role="progressbar" style="width: calc({{$ingredient->amount}}% / 350)"><span class="testing">{{$ingredient->amount}}</span></div>
+        </div>
+    @endforeach
+</div>
+<span class="tester"></span>
+<br>
 <div>
     <a href="/batch/result">View batch report</a>
 </div>

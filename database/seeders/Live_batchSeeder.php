@@ -18,7 +18,7 @@ class Live_batchSeeder extends Seeder
     {
         $faker = Factory::create();
 
-        for ($i=0;$i<20;$i++){
+        for ($i=0;$i<10;$i++){
             Live_batch::create([
                 'prod_processed_count'=>$faker->numberBetween(150,200),
                 'prod_defective_count'=>$faker->numberBetween(20,60),

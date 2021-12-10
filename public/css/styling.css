@@ -5,3 +5,18 @@ html {
 body {
     padding: 0px 20px 0px 20px;
 }
+
+.progressBar {
+    height: 40px;
+}
+
+.progress-bar {
+    height: 35px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+
+    opacity: 1;
+
+}
