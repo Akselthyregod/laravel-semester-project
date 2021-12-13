@@ -15,6 +15,15 @@ use Illuminate\Support\Facades\DB;
 class BatchController extends Controller
 {
     function index(){
+
+        $tests = Java_test::all();
+        $batch = Live_batch::all();
+        $products = Product::all();
+
+        return view("index", ['tests' => $tests, 'batch' => $batch, 'products' => $products]);
+    }
+
+    function indexBatch(){
         $batch = Live_batch::all();
         $cmd = Command::all();
         $ingredient = Ingredients::all();

@@ -10,15 +10,6 @@ use Illuminate\Support\Facades\DB;
 
 class TestController extends Controller
 {
-    function index(){
-
-        $tests = Java_test::all();
-        $batch = Live_batch::all();
-        $products = Product::all();
-
-        return view("index", ['tests' => $tests, 'batch' => $batch, 'products' => $products]);
-    }
-
     function index2(){
 
         $tests = Java_test::all();

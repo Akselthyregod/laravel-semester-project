@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [TestController::class, 'index']);
+Route::get('/', [\App\Http\Controllers\BatchController::class, 'index']);
 
 Route::get('/index2', [TestController::class, 'index2']);
 
@@ -23,7 +23,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/batch', [\App\Http\Controllers\BatchController::class, 'index']);
+Route::get('/batch', [\App\Http\Controllers\BatchController::class, 'indexBatch']);
 
 Route::post('/batch', [\App\Http\Controllers\BatchController::class, 'command']);
 
