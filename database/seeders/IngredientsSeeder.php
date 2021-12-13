@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\ingredients;
+use App\Models\Ingredients;
 use Illuminate\Database\Seeder;
 
-class ingredientsSeeder extends Seeder
+class IngredientsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,23 +14,23 @@ class ingredientsSeeder extends Seeder
      */
     public function run()
     {
-        ingredients::create([
+        Ingredients::create([
             'product'=>'Barley',
             'amount' => 35000.0
         ]);
-        ingredients::create([
+        Ingredients::create([
             'product'=>'Malt',
             'amount' => 35000.0
         ]);
-        ingredients::create([
+        Ingredients::create([
             'product'=>'Hops',
             'amount' => 35000.0
         ]);
-        ingredients::create([
+        Ingredients::create([
             'product'=>'Wheat',
             'amount' => 35000.0
         ]);
-        ingredients::create([
+        Ingredients::create([
             'product'=>'Yeast',
             'amount' => 35000.0
         ]);

@@ -10,6 +10,7 @@
     <title>Create batch</title>
     <link rel="stylesheet" href="{{URL::asset('css/styling.css')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {{--
     <script type="text/javascript">
         $(document).ready(function() {
             $('#input1').change(function () {
@@ -17,6 +18,7 @@
             });
         });
     </script>
+    --}}
 </head>
 @section('content')
 <body>
@@ -43,6 +45,7 @@
         <label>Speed:</label>
         <input type="number" id="input1" name="speed"> <br>
     </div>
+    {{--
     <div class="hidden">
         <input type="hidden" name="prod_processed_count" value="0">
         <input type="hidden" name="prod_defective_count" value="0">
@@ -51,6 +54,7 @@
         <input type="hidden" name="temperature" value="0">
         <input type="hidden" name="vibration" value="0">
     </div>
+    --}}
     <div class="btn-group-vertical">
         <button type="submit" name="batch" class="btn btn-primary btn-lg">Create</button>
     </div>

@@ -19,8 +19,10 @@ class BatchController extends Controller
         $tests = Java_test::all();
         $batch = Live_batch::all();
         $products = Product::all();
+        $newbatch = newbatch::all();
 
-        return view("index", ['tests' => $tests, 'batch' => $batch, 'products' => $products]);
+
+        return view("index", ['tests' => $tests, 'batch' => $batch, 'products' => $products, 'newbatch' => $newbatch]);
     }
 
     function indexBatch(){
@@ -51,7 +53,7 @@ class BatchController extends Controller
             'speed' =>  ['required', 'max: 600']
 
         ]);
-
+        /*
         $livebatch = request()->validate([
             'prod_processed_count' => ['required'],
             'prod_defective_count' => ['required'],
@@ -60,11 +62,12 @@ class BatchController extends Controller
             'temperature' => ['required'],
             'vibration' => ['required']
         ]);
+        */
 
         newBatch::create($batch);
-        Live_batch::create($livebatch);
+        //Live_batch::create($livebatch);
 
-        return redirect()->to('/batch');
+        return redirect()->to('/');
 
     }
 
