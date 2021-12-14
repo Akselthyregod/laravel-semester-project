@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(BatchSeeder::class);
         $this->call(Live_batchSeeder::class);
         $this->call(IngredientsSeeder::class);
+        $this->call(newBatchSeeder::class);
     }
 }
