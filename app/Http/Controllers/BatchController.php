@@ -22,16 +22,19 @@ class BatchController extends Controller
         $newbatch = newbatch::all();
 
 
+
         return view("index", ['tests' => $tests, 'batch' => $batch, 'products' => $products, 'newbatch' => $newbatch]);
     }
 
     function indexBatch(){
-        $batch = Live_batch::all();
         $cmd = Command::all();
         $ingredient = Ingredients::all();
 
         $test = DB::table('ingredients')
             ->where('id',1)->value('amount');
+
+
+        $batch = DB::table('live_batches')->latest()->take(11)->get();
 
         return view("indexBatch", ['batch' => $batch, 'cmd' => $cmd, 'ingredient' => $ingredient, 'test'=>$test]);
     }
@@ -66,8 +69,9 @@ class BatchController extends Controller
 
         newBatch::create($batch);
         //Live_batch::create($livebatch);
-
+        session()->flash('message', 'Batch created successfully.');
         return redirect()->to('/');
+        //return redirect()->to('/');
 
     }
 
@@ -89,4 +93,6 @@ class BatchController extends Controller
 
         return view("pollingtest", ['ingredient' => $ingredient]);
     }
+
+
 }

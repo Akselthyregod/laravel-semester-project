@@ -18,7 +18,14 @@
     <a href="/batch/create">Create batch</a> <br>
     <a href="/batch">View batch</a>
 </div>
-<br> <br>
+<br>
+@if(session()->has('message'))
+    <div class="alert alert-success" role="alert">
+        {{ session()->get('message') }}
+    </div>
+@endif
+<br>
+
 <h3>Current active batches: {{DB::table('newbatches')->count()}}</h3>
 
 <div class="container-sm" style="position:relative; right: 340px; top: 20px">
