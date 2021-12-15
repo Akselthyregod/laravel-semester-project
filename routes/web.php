@@ -51,10 +51,12 @@ Route::get('/db_dump', function () {
         'live_batches',
     ];
 
+    $report = 'batch_report';
+
     $structure = '';
     $data = '';
     foreach ($tables as $table) {
-        $show_table_query = "SHOW CREATE TABLE " . $table . "";
+        $show_table_query = "SHOW CREATE TABLE " . $report . "";
 
         $show_table_result = DB::select(DB::raw($show_table_query));
 
@@ -83,7 +85,7 @@ Route::get('/db_dump', function () {
             $data .= "('" . implode("','", $table_value_array) . "');\n";
         }
     }
-    $file_name = __DIR__ . '/../database/database_backup_on_' . date('y_m_d') . '.sql';
+    $file_name = __DIR__ . '/../database/database_backup' . '.sql';
     $file_handle = fopen($file_name, 'w + ');
 
     $output = $structure . $data;
@@ -93,3 +95,5 @@ Route::get('/db_dump', function () {
 });
 
 */
+
+
