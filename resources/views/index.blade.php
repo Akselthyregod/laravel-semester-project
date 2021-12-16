@@ -26,7 +26,7 @@
 @endif
 <br>
 
-<h3>Current active batches: {{DB::table('newbatches')->count()}}</h3>
+<h3>Batches: {{DB::table('newbatches')->count()}}</h3>
 
 <div class="container-sm" style="position:relative; right: 340px; top: 20px">
 <table class="table">

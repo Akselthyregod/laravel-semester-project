@@ -15,7 +15,6 @@
 @section('content')
 <h1>Batch</h1>
 <a href="/">Back</a>
-
 <table class="table">
     <thead>
     <th scope="col">ID</th>
@@ -45,19 +44,18 @@
     </tbody>
 </table>
 <div class="controls">
-<form action="/batch" method="post">
-    @csrf
-<div class="btn-group-vertical">
-    <button type="submit" name="cmd" value="1" class="btn btn-secondary btn-lg">Reset</button>
-    <button type="submit" name="cmd" value="2" class="btn btn-success btn-lg">Start</button>
-    <button type="submit" name="cmd" value="3" class="btn btn-warning btn-lg">Stop</button>
-    <button type="submit" name="cmd" value="4" class="btn btn-danger btn-lg">Abort</button>
-    <button type="submit" name="cmd" value="5" class="btn btn-dark btn-lg">Clear</button>
+    <form action="/batch" method="post">
+        @csrf
+        <div class="btn-group">
+            <button type="submit" name="cmd" value="1" class="btn btn-secondary btn-lg">Reset</button>
+            <button type="submit" name="cmd" value="2" class="btn btn-success btn-lg">Start</button>
+            <button type="submit" name="cmd" value="3" class="btn btn-warning btn-lg">Stop</button>
+            <button type="submit" name="cmd" value="4" class="btn btn-danger btn-lg">Abort</button>
+            <button type="submit" name="cmd" value="5" class="btn btn-dark btn-lg">Clear</button>
+        </div>
+    </form>
 </div>
-</form>
-</div>
-<br>
-<button class="update" onClick="window.location.reload();">Update</button>
+<button class="update" onClick="window.location.reload();">Update</button> <br> <br>
 <div class="ingredients">
     @foreach($ingredient as $ingredient)
         <h4>{{$ingredient->product}}: {{$ingredient->amount}}</h4>
@@ -71,6 +69,7 @@
 <div>
     <a href="/batch/result">View batch report</a>
 </div>
+<h5 class="status">Status:</h5>
 </body>
 @endsection
 </html>
