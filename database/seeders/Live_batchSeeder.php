@@ -25,7 +25,9 @@ class Live_batchSeeder extends Seeder
                 'mach_speed'=>$faker->randomFloat(1,0,100),
                 'humidity'=>$faker->randomFloat(1,0,100),
                 'temperature'=>$faker->randomFloat(1,0,100),
-                'vibration'=>$faker->randomFloat(1,0,100)
+                'vibration'=>$faker->randomFloat(1,0,100),
+                'productID'=>$faker->numberBetween(0,5),
+                'stateID'=>$faker->numberBetween(0,11)
             ]);
         }
     }

@@ -20,9 +20,10 @@ class DatabaseSeeder extends Seeder
         $this->call(ProductSeeder::class);
         $this->call(Stop_reasonSeeder::class);
         $this->call(BatchSeeder::class);
+        $this->call(statesSeeder::class);
         $this->call(Live_batchSeeder::class);
         $this->call(IngredientsSeeder::class);
         $this->call(newBatchSeeder::class);
-        $this->call(statesSeeder::class);
+
     }
 }

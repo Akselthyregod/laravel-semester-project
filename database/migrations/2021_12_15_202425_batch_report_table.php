@@ -23,9 +23,10 @@ class BatchReportTable extends Migration
             $table->string("humidity");
             $table->string("temperature");
             $table->string("vibration");
+            $table->integer('batchID');
             //change to string
 
-            $table->foreign('productID')->references('id')->on('newbatches');
+            $table->foreign('productID')->references('id')->on('products');
         });
     }
 
