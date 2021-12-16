@@ -22,11 +22,13 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .btn-group {
-    position:fixed; left: 150px; bottom: 670px;
+    position: absolute;
+    left: 155px;
+    top:  -65px;
 }
 
 .status {
-    position: absolute; left: 700px; bottom: 855px;
+    position: absolute; left: 720px; bottom: 855px;
     animation: blinker 2s linear infinite;
 }
 @keyframes blinker {
