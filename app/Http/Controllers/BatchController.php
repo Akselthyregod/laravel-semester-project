@@ -53,8 +53,7 @@ class BatchController extends Controller
         $batch = request()->validate([
             'product_id' => ['required'],
             'amount'=> ['required', 'max:65535'],
-            'speed' =>  ['required', 'max: 600']
-
+            'speed' =>  ['required', 'max: 600'],
         ]);
         /*
         $livebatch = request()->validate([
@@ -71,7 +70,6 @@ class BatchController extends Controller
         //Live_batch::create($livebatch);
         session()->flash('message', 'Batch created successfully.');
         return redirect()->to('/');
-        //return redirect()->to('/');
 
     }
 

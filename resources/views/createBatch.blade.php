@@ -40,10 +40,16 @@
     <div>
         <label>Amount of bottles:</label>
         <input type="number" name="amount"> <br>
+        @if($errors->has('amount'))
+            <div class="form-text text-danger">{{ $errors->first('amount') }}</div>
+        @endif
     </div>
     <div>
         <label>Speed:</label>
         <input type="number" id="input1" name="speed"> <br>
+        @if($errors->has('speed'))
+            <div class="form-text text-danger">{{ $errors->first('speed') }}</div>
+        @endif
     </div>
     {{--
     <div class="hidden">
