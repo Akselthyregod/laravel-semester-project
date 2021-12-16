@@ -17,6 +17,7 @@ class CreateLiveBatchesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->unsignedBigInteger('productID')->nullable();
+            $table->unsignedBigInteger('stateID')->nullable();
             $table->string("prod_processed_count");
             $table->string("prod_defective_count");
             $table->string("mach_speed");
@@ -25,7 +26,8 @@ class CreateLiveBatchesTable extends Migration
             $table->string("vibration");
             //change to string
 
-            $table->foreign('productID')->references('id')->on('newbatches');
+            $table->foreign('productID')->references('type')->on('products')->onDelete('cascade');
+            $table->foreign('stateID')->references('value')->on('states')->onDelete('cascade');
         });
     }
 

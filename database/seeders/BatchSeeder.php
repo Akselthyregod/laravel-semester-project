@@ -21,7 +21,7 @@ class BatchSeeder extends Seeder
             Batch::create([
                 'id'=>$i,
                 'stopID'=> $faker->numberBetween(10,14),
-                'product_id'=>$faker->numberBetween(10,15),
+                'product_id'=>$faker->numberBetween(0,5),
                 'amount'=>$faker->numberBetween(0,200)
             ]);
         }
