@@ -17,7 +17,7 @@ class CreateBatchesTable extends Migration
             $table->integer("id"); //batchid
             $table->timestamps();
             $table->UnsignedBigInteger("product_id");
-            $table->foreign("product_id")->references("id")->on("products")->onDelete("cascade");
+            $table->foreign("product_id")->references("type")->on("products")->onDelete("cascade");
 
             $table->UnsignedBigInteger("stopID");
             $table->foreign("stopID")->references("id")->on("stop_reasons")->onDelete("cascade");

@@ -16,27 +16,33 @@ class ProductSeeder extends Seeder
     {
         Product::create([
 
-           'description'=>'Pilsner'
+            'description'=>'Pilsner',
+            'type' => 0
         ]);
         Product::create([
 
-            'description'=>'Wheat'
+            'description'=>'Wheat',
+            'type' => 1
         ]);
         Product::create([
 
-            'description'=>'IPA'
+            'description'=>'IPA',
+            'type' => 2
         ]);
         Product::create([
 
-            'description'=>'Stout'
+            'description'=>'Stout',
+            'type' => 3
         ]);
         Product::create([
 
-            'description'=>'Ale'
+            'description'=>'Ale',
+            'type' => 4
         ]);
         Product::create([
 
-            'description'=>'Alcohol Free'
+            'description'=>'Alcohol Free',
+            'type' => 5
         ]);
     }
 }
