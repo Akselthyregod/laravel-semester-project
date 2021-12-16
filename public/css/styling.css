@@ -22,9 +22,16 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .btn-group {
-    position:absolute; left: 170px; bottom: 615px;
+    position:absolute; left: 150px; bottom: 665px;
 }
 
 .status {
-    position: absolute; left: 660px; bottom: 855px;
+    position: absolute; left: 700px; bottom: 855px;
+    animation: blinker 2s linear infinite;
+}
+@keyframes blinker {
+    50% {
+        opacity: 40%;
+        color: green;
+    }
 }

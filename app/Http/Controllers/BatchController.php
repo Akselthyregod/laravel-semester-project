@@ -9,6 +9,7 @@ use App\Models\Java_test;
 use App\Models\Live_batch;
 use App\Models\newbatch;
 use App\Models\Product;
+use App\Models\states;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -29,14 +30,20 @@ class BatchController extends Controller
     function indexBatch(){
         $cmd = Command::all();
         $ingredient = Ingredients::all();
+        $live_batch = Live_batch::all();
+        $states = states::all();
 
-        $test = DB::table('ingredients')
-            ->where('id',1)->value('amount');
+        $data = $live_batch->pluck('stateID')->last();
+
+        $status = DB::table('states')
+            ->select('state')
+            ->where('value', '=', $data)
+            ->value('value');
 
 
         $batch = DB::table('live_batches')->latest()->take(11)->get();
 
-        return view("indexBatch", ['batch' => $batch, 'cmd' => $cmd, 'ingredient' => $ingredient, 'test'=>$test]);
+        return view("indexBatch", ['batch' => $batch, 'cmd' => $cmd, 'ingredient' => $ingredient, 'status' => $status]);
     }
 
     function view(){
