@@ -135,7 +135,7 @@
 <div>
     <a href="/batch/result">View batch report</a>
 </div>
-<h5 class="status" id="status">Status: </h5>
+<h5 class="status" id="status">Status: {{$status}}</h5>
 
 
 </body>
