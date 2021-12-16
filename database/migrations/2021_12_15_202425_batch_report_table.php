@@ -26,7 +26,7 @@ class BatchReportTable extends Migration
             $table->integer('batchID');
             //change to string
 
-            $table->foreign('productID')->references('id')->on('products');
+            $table->foreign('productID')->references('type')->on('products');
         });
     }
 
