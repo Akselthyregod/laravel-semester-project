@@ -27,6 +27,52 @@ class BatchController extends Controller
         return view("index", ['tests' => $tests, 'batch' => $batch, 'products' => $products, 'newbatch' => $newbatch]);
     }
 
+    public function notifyNew(){
+
+        $live_batch = Live_batch::orderBy('created_at', 'desc')->first();
+
+
+        $data = [   'new' => false,
+                    'data' => $live_batch
+                ];
+
+
+        $current_last = session()->get('last_live_batch', $live_batch);
+        if($current_last != $live_batch and $data['data'] != null){
+            $data['new'] = true;
+        }
+
+
+        session()->put('last_live_batch', $live_batch);
+
+        return $data;
+    }
+
+    public function notifyNewState(){
+
+        $data = ['new' => false,
+                'state' => "Unknown"
+                ];
+
+        $live_batch = Live_batch::all();
+        $data_batch = $live_batch->pluck('stateID')->last();
+
+        $status = DB::table('states')
+            ->select('state')
+            ->where('value', '=', $data_batch)
+            ->value('value');
+
+        $current_status = session()->get('status', $status);
+
+        if($current_status != $status){
+            $data['new'] = true;
+            $data['state'] = $status;
+            session()->put('status', $status);
+        }
+
+        return $data;
+    }
+
     function indexBatch(){
         $cmd = Command::all();
         $ingredient = Ingredients::all();

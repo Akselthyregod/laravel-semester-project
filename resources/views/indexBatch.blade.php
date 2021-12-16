@@ -10,6 +10,74 @@
     <link rel="stylesheet" href="{{URL::asset('css/styling.css')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/jsdoc.js"></script>
+
+    <script>
+
+        function stateNotification(){
+            $.get("<?php echo route ('ajaxStatus')?>")
+                .done(function(result){
+
+                  if(result['new']) {
+                      console.log('new state');
+                      document.getElementById("status").innerHTML = "State: " + result['state'];
+                  }else{
+
+                  }
+
+                })
+                .always(function (){
+                    setTimeout(function (){
+                        batchNotification();
+                    }, 1000)
+                })
+
+        }
+
+        function batchNotification(){
+            $.get("<?php echo route ('ajaxNew')?>")
+                .done(function(result){
+                    if(result['new']) {
+                        console.log('new Entry');
+
+                        var body = document.getElementById("batch-body");
+                        var row = body.insertRow(0);
+
+                        var id                      = row.insertCell(0);
+                      //  id.innerHTML                = result['data'].id;
+                        var created_at              = row.insertCell(1);
+                        //created_at.innerHTML                  = result['data'].created_at;
+                        var updated_at              = row.insertCell(2);
+                        //updated_at.innerHTML                  = result['data'].updated_at;
+                        var prod_processed_count    = row.insertCell(3);
+                        prod_processed_count.innerHTML        = result['data'].prod_processed_count;
+                        var prod_defective_count    = row.insertCell(4);
+                        prod_defective_count.innerHTML        = result['data'].prod_defective_count;
+                        var mach_speed              = row.insertCell(5);
+                        mach_speed.innerHTML                  = result['data'].mach_speed;
+                        var humidity                = row.insertCell(6);
+                        humidity.innerHTML      = result['data'].humidity;
+                        var temperature             = row.insertCell(7);
+                        temperature.innerHTML = result['data'].temperature;
+                        var vibration               = row.insertCell(8);
+                        vibration.innerHTML = result['data'].vibration;
+
+
+
+                    }else{
+
+                    }
+
+                })
+                .always(function (){
+                    setTimeout(function (){
+                        stateNotification();
+                    }, 1000)
+                })
+
+        }
+        stateNotification();
+
+    </script>
 </head>
 <body>
 @section('content')
@@ -37,7 +105,7 @@
     <th scope="col">Temperature</th>
     <th scope="col">Vibration</th>
     </thead>
-    <tbody>
+    <tbody id="batch-body">
     @foreach($batch as $batch)
         <tr>
             <th scope="row">{{$batch->id}}</th>
@@ -53,7 +121,23 @@
     @endforeach
     </tbody>
 </table>
+<<<<<<< Updated upstream
 <button class="update" onClick="window.location.reload();">Update</button> <br> <br>
+=======
+<div class="controls">
+    <form action="/batch" method="post">
+        @csrf
+        <div class="btn-group">
+            <button type="submit" name="cmd" value="1" class="btn btn-secondary btn-lg">Reset</button>
+            <button type="submit" name="cmd" value="2" class="btn btn-success btn-lg">Start</button>
+            <button type="submit" name="cmd" value="3" class="btn btn-warning btn-lg">Stop</button>
+            <button type="submit" name="cmd" value="4" class="btn btn-danger btn-lg">Abort</button>
+            <button type="submit" name="cmd" value="5" class="btn btn-dark btn-lg">Clear</button>
+        </div>
+    </form>
+</div>
+<button class="update" onClick="window.location.reload()" id="update">Update</button> <br> <br>
+>>>>>>> Stashed changes
 <div class="ingredients">
     @foreach($ingredient as $ingredient)
         <h4>{{$ingredient->product}}: {{$ingredient->amount}}</h4>
@@ -67,7 +151,9 @@
 <div>
     <a href="/batch/result">View batch report</a>
 </div>
-<h5 class="status">Status: {{$status}}</h5>
+<h5 class="status" id="status">Status: </h5>
+
+
 </body>
 @endsection
 </html>

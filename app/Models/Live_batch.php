@@ -9,7 +9,6 @@ class Live_batch extends Model
 {
     use HasFactory;
 
-
     protected $fillable=[
         'prod_processed_count',
         'prod_defective_count',
@@ -18,4 +17,6 @@ class Live_batch extends Model
         'temperature',
         'vibration'
     ];
+
+
 }
