@@ -22,7 +22,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .btn-group {
-    position:absolute; left: 170px; bottom: 615px;
+    position:absolute; left: 150px; bottom: 665px;
 }
 
 .status {

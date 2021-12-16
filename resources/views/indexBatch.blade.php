@@ -69,7 +69,7 @@
 <div>
     <a href="/batch/result">View batch report</a>
 </div>
-<h5 class="status">Status:</h5>
+<h5 class="status">Status: {{$status}}</h5>
 </body>
 @endsection
 </html>
