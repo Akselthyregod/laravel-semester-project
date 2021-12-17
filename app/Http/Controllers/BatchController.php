@@ -62,7 +62,7 @@ class BatchController extends Controller
             ->where('value', '=', $data_batch)
             ->value('value');
 
-        $current_status = session()->get('status', $status);
+        $current_status = session()->get('status', null);
 
         if($current_status != $status){
             $data['new'] = true;
