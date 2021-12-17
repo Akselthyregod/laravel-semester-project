@@ -86,6 +86,17 @@
                         let amountSpan5 = document.getElementById("amountSpan5");
                         amountSpan5.innerHTML = result['Yeast'];
 
+                        let amountHead = document.getElementById("amountHead1");
+                        amountHead.innerHTML = result['Barley'];
+                        let amountHead2 = document.getElementById("amountHead2");
+                        amountHead2.innerHTML = result['Malt'];
+                        let amountHead3 = document.getElementById("amountHead3");
+                        amountHead3.innerHTML = result['Hops'];
+                        let amountHead4 = document.getElementById("amountHead4");
+                        amountHead4.innerHTML = result['Wheat'];
+                        let amountHead5 = document.getElementById("amountHead5");
+                        amountHead5.innerHTML = result['Yeast'];
+
                 }
 
             })
@@ -141,15 +152,17 @@
     @endforeach
     </tbody>
 </table>
-<button class="update" onClick="window.location.reload();">Update</button> <br> <br>
 <div class="ingredients">
-
-    {{$id =0}}
+    <div style="visibility: hidden">
+        {{$id=0}}
+    </div>
 
     @foreach($ingredient as $ingredient)
-        {{$id=$id+1}}
+        <div style="visibility: hidden">
+            {{$id=$id+1}}
+        </div>
 
-        <h4>{{$ingredient->product}}: {{$ingredient->amount}}</h4>
+    <nobr class="header1">{{$ingredient->product}}:</nobr> <nobr class="header2" id="amountHead{{$id}}">{{$ingredient->amount}}</nobr>
        <div class="progressBar">
             <div class="progress-bar" role="progressbar" style="width: calc({{$ingredient->amount}}% / 350)"><span class="testing" id="amountSpan{{$id}}">{{$ingredient->amount}}</span></div>
         </div>
