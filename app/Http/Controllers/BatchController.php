@@ -48,6 +48,35 @@ class BatchController extends Controller
         return $data;
     }
 
+    public function notifyNewInventory(){
+
+        $ingredients= Ingredients::all()->pluck('amount');
+        $barley= $ingredients['0'];
+        $hops = $ingredients['1'];
+        $wheat =$ingredients['2'];
+        $malt = $ingredients['3'];
+        $yeast= $ingredients['4'];
+
+
+        $data =[
+            'new'=> false
+        ];
+        $currentIngredients = session()->get('ingredients',null);
+        if($currentIngredients != $ingredients){
+            $data=[
+                'Barley'=>$barley,
+                'Hops'=>$hops,
+                'Wheat'=>$wheat,
+                'Malt'=>$malt,
+                'Yeast'=>$yeast,
+                'new'=>true
+            ];
+            session()->put('ingredients',$ingredients);
+        }
+        return $data;
+
+    }
+
     public function notifyNewState(){
 
         $data = ['new' => false,

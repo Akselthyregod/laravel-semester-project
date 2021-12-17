@@ -35,6 +35,8 @@ Route::get('/batch/result', [\App\Http\Controllers\BatchController::class, 'resu
 
 Route::get('/ingredients', [\App\Http\Controllers\BatchController::class, 'ingredients']);
 
+Route::get('/ingredients/update', [\App\Http\Controllers\BatchController::class, 'notifyNewInventory'])->name('newInventory');
+
 Route::get('/status', [\App\Http\Controllers\BatchController::class, 'notifyNewState'])->name('ajaxStatus');
 
 Route::get('/status/batch', [\App\Http\Controllers\BatchController::class, 'notifyNew'])->name('ajaxNew');

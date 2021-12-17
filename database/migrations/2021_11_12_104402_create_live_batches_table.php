@@ -25,6 +25,7 @@ class CreateLiveBatchesTable extends Migration
             $table->string("temperature");
             $table->string("vibration");
 
+
             //change to string
 
             $table->foreign('productID')->references('type')->on('products')->onDelete('cascade');

@@ -64,10 +64,36 @@
                 })
                 .always(function (){
                     setTimeout(function (){
-                        stateNotification();
+                        updateInventory();
                     }, 1000)
                 })
 
+        }
+
+        function updateInventory(){
+            $.get("<?php echo route('newInventory')?>")
+            .done(function (result){
+                if(result['new']){
+                    console.log('New inventory');
+                        let amountSpan = document.getElementById("amountSpan1");
+                        amountSpan.innerHTML = result['Barley'];
+                        let amountSpan2 = document.getElementById("amountSpan2");
+                        amountSpan2.innerHTML = result['Malt'];
+                        let amountSpan3 = document.getElementById("amountSpan3");
+                        amountSpan3.innerHTML = result['Hops'];
+                        let amountSpan4 = document.getElementById("amountSpan4");
+                        amountSpan4.innerHTML = result['Wheat'];
+                        let amountSpan5 = document.getElementById("amountSpan5");
+                        amountSpan5.innerHTML = result['Yeast'];
+
+                }
+
+            })
+            .always(function(){
+                setTimeout(function (){
+                    stateNotification()
+                },1000)
+            })
         }
         stateNotification();
 
@@ -117,12 +143,18 @@
 </table>
 <button class="update" onClick="window.location.reload();">Update</button> <br> <br>
 <div class="ingredients">
+
+    {{$id =0}}
+
     @foreach($ingredient as $ingredient)
+        {{$id=$id+1}}
+
         <h4>{{$ingredient->product}}: {{$ingredient->amount}}</h4>
        <div class="progressBar">
-            <div class="progress-bar" role="progressbar" style="width: calc({{$ingredient->amount}}% / 350)"><span class="testing">{{$ingredient->amount}}</span></div>
+            <div class="progress-bar" role="progressbar" style="width: calc({{$ingredient->amount}}% / 350)"><span class="testing" id="amountSpan{{$id}}">{{$ingredient->amount}}</span></div>
         </div>
     @endforeach
+
 </div>
 <span class="tester"></span>
 <br>
