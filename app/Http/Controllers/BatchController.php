@@ -31,17 +31,17 @@ class BatchController extends Controller
 
         $live_batch = Live_batch::orderBy('created_at', 'desc')->first();
 
-
         $data = [   'new' => false,
-                    'data' => $live_batch
+                    'data' => $live_batch,
+                    'id' => $live_batch->id,
+                    'updated' => $live_batch->updated_at,
+                    'created' => $live_batch->created_at
                 ];
-
 
         $current_last = session()->get('last_live_batch', $live_batch);
         if($current_last != $live_batch and $data['data'] != null){
             $data['new'] = true;
         }
-
 
         session()->put('last_live_batch', $live_batch);
 

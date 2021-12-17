@@ -21,16 +21,13 @@
                       console.log('new state');
                       document.getElementById("status").innerHTML = "State: " + result['state'];
                   }else{
-
                   }
-
                 })
                 .always(function (){
                     setTimeout(function (){
                         batchNotification();
                     }, 1000)
                 })
-
         }
 
         function batchNotification(){
@@ -43,11 +40,11 @@
                         var row = body.insertRow(0);
 
                         var id                      = row.insertCell(0);
-                      //  id.innerHTML                = result['data'].id;
+                        id.innerHTML                = result['id'];
                         var created_at              = row.insertCell(1);
-                        //created_at.innerHTML                  = result['data'].created_at;
+                        created_at.innerHTML                  = result['created'];
                         var updated_at              = row.insertCell(2);
-                        //updated_at.innerHTML                  = result['data'].updated_at;
+                        updated_at.innerHTML                  = result['updated'];
                         var prod_processed_count    = row.insertCell(3);
                         prod_processed_count.innerHTML        = result['data'].prod_processed_count;
                         var prod_defective_count    = row.insertCell(4);
@@ -61,10 +58,7 @@
                         var vibration               = row.insertCell(8);
                         vibration.innerHTML = result['data'].vibration;
 
-
-
                     }else{
-
                     }
 
                 })
