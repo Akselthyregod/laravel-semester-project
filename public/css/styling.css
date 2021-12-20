@@ -8,6 +8,7 @@ body {
 
 .progressBar {
     height: 40px;
+    opacity: 90%;
 }
 
 .progress-bar {
@@ -28,7 +29,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .status {
-    position: absolute; left: 720px; bottom: 858px;
+    position: absolute; left: 300px; bottom: 746px;
+    font-size: x-large;
 }
 
 .header1 {
@@ -41,12 +43,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 #columns {
     position: absolute;
-    left: 160px;
-    bottom: 770px;
 }
 
 .displayvalue {
-    font-size: large;
+    font-size: x-large;
 }
 
 #batch-box {
@@ -56,10 +56,129 @@ input[type=number]::-webkit-outer-spin-button {
 .row-height {
     height: 50px;
     text-align: center;
-    padding-top: 10px;
+    padding-top: 5px;
 }
 
 .col-md-1 {
-    background-color: darkgray;
+    background-color: gray;
     border-radius: 15px 15px 15px 15px;
+    opacity: 85%;
+}
+
+.accepted {
+    position: absolute;
+    left: 617px;
+    top: 90px;
+}
+
+.defect {
+    position: absolute;
+    left: 610px;
+    top: 210px;
+}
+
+.speed {
+    position: absolute;
+    width: 85px;
+    left: 935px;
+    top: 90px;
+}
+
+.humidity {
+    position: absolute;
+    left: 940px;
+    top: 214px;
+}
+
+.temperature {
+    position: absolute;
+    width: 42px;
+    left: 1275px;
+    top: 82px;
+}
+
+.vibration {
+    position: absolute;
+    width: 90px;
+    left: 1255px;
+    top: 220px;
+}
+
+.state {
+    position: absolute;
+    width: 120px;
+    left: 180px;
+    top: 170px;
+}
+
+.b1 {
+    position: absolute;
+    left: 730px;
+    top: -90px;
+}
+
+.b2 {
+    position: absolute;
+    left: 638px;
+    top: 30px;
+}
+
+.b3 {
+    position: absolute;
+    left: 835px;
+    top: -90px;
+}
+
+.b4 {
+    position: absolute;
+    left: 742px;
+    top: 30px;
+}
+
+.b5 {
+    position: absolute;
+    left: 962px;
+    top: -90px;
+}
+
+.b6 {
+    left: 868px;
+    top: 30px;
+}
+
+.title1 {
+    position: absolute;
+    left: 632px;
+    top: 172px;
+}
+
+.title2 {
+    position: absolute;
+    left: 632px;
+    top: 296px;
+}
+
+.title3 {
+    position: absolute;
+    left: 950px;
+    top: 172px;
+}
+
+.title4 {
+    position: absolute;
+    left: 940px;
+    top: 296px;
+}
+
+.title5 {
+    position: absolute;
+    left: 1252px;
+    top: 172px;
+}
+
+.title6 {
+    position: absolute;
+    position: absolute;
+    left: 1260px;
+    top: 296px;
 }

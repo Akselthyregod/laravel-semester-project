@@ -125,6 +125,19 @@
 </head>
 <body>
 @section('content')
+    <img class="accepted" src="{{URL::asset('/images/accepted.png')}}" alt="...">
+    <img class="defect" src="{{URL::asset('/images/defect.png')}}" alt="...">
+    <img class="speed" src="{{URL::asset('/images/speed.png')}}" alt="...">
+    <img class="humidity" src="{{URL::asset('/images/humidity.png')}}" alt="...">
+    <img class="temperature" src="{{URL::asset('/images/temperature.png')}}" alt="...">
+    <img class="vibration" src="{{URL::asset('/images/vibration.png')}}" alt="...">
+    <img class="state" src="{{URL::asset('/images/state.png')}}" alt="...">
+    <h5 class="title1">Processed</h5>
+    <h5 class="title2">Defective</h5>
+    <h5 class="title3">Speed</h5>
+    <h5 class="title4">Humidity</h5>
+    <h5 class="title5">Temperature</h5>
+    <h5 class="title6">Vibration</h5>
 <h1>Batch</h1>
 <a href="/">Back</a>
 <form action="{{\Request::url()}}" method="post">
@@ -140,28 +153,44 @@
 <div id="columns" class="container">
     <div id="batch-box" class="row">
         @foreach($b as $b)
-            <div class="col-md-1 row-height">
+            <div class="col-md-1 row-height b1">
                 <span id="b1" class="displayvalue">{{$b->prod_processed_count}}</span>
             </div>
-            <div class="col-md-1 row-height">
+            <div class="col-md-1 row-height b2">
                 <span id="b2" class="displayvalue">{{$b->prod_defective_count}}</span>
             </div>
-            <div class="col-md-1 row-height">
+            <div class="col-md-1 row-height b3">
                 <span id="b3" class="displayvalue">{{$b->mach_speed}}</span>
             </div>
-            <div class="col-md-1 row-height">
+            <div class="col-md-1 row-height b4">
                 <span id="b4" class="displayvalue">{{$b->humidity}}</span>
             </div>
-            <div class="col-md-1 row-height">
+            <div class="col-md-1 row-height b5">
                 <span id="b5" class="displayvalue">{{$b->temperature}}</span>
             </div>
-            <div class="col-md-1 row-height">
+            <div class="col-md-1 row-height b6">
                 <span id="b6" class="displayvalue">{{$b->vibration}}</span>
             </div>
         @endforeach
     </div>
 </div>
-<br> <br>
+<br> <br> <br> <br>{{-- ugly line breaks --}}
+    <div class="ingredients">
+        <div style="visibility: hidden">
+            {{$id=0}}
+        </div>
+        @foreach($ingredient as $ingredient)
+            <div style="visibility: hidden">
+                {{$id=$id+1}}
+            </div>
+
+            <nobr class="header1">{{$ingredient->product}}:</nobr> <nobr class="header2" id="amountHead{{$id}}">{{$ingredient->amount}}</nobr>
+            <div class="progressBar">
+                <div class="progress-bar" role="progressbar" style="width: calc({{$ingredient->amount}}% / 350)"><span class="testing" id="amountSpan{{$id}}">{{$ingredient->amount}}</span></div>
+            </div>
+        @endforeach
+    </div>
+<br> <br>{{-- more ugly line breaks--}}
 <table class="table">
     <thead>
     <th scope="col">ID</th>
@@ -190,28 +219,11 @@
     @endforeach
     </tbody>
 </table>
-<div class="ingredients">
-    <div style="visibility: hidden">
-        {{$id=0}}
-    </div>
-
-    @foreach($ingredient as $ingredient)
-        <div style="visibility: hidden">
-            {{$id=$id+1}}
-        </div>
-
-    <nobr class="header1">{{$ingredient->product}}:</nobr> <nobr class="header2" id="amountHead{{$id}}">{{$ingredient->amount}}</nobr>
-       <div class="progressBar">
-            <div class="progress-bar" role="progressbar" style="width: calc({{$ingredient->amount}}% / 350)"><span class="testing" id="amountSpan{{$id}}">{{$ingredient->amount}}</span></div>
-        </div>
-    @endforeach
-
-</div>
 <br>
 <div>
     <a href="/batch/result">View batch report</a>
 </div>
-<h5 class="status" id="status">State: {{session('status')}}</h5>
+<h5 class="status" id="status">[text]{{session('status')}}</h5>
 </body>
 @endsection
 </html>
