@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Batch;
+use App\Models\batch_report;
 use App\Models\Command;
 use App\Models\Current_state;
 use App\Models\Ingredients;
@@ -48,6 +49,8 @@ class BatchController extends Controller
 
         return $data;
     }
+
+
 
     public function notifyNewInventory(){
 
@@ -103,15 +106,14 @@ class BatchController extends Controller
         return $data;
     }
 
-    function indexBatch(){
-        $cmd = Command::all();
+    function indexBatch(int $batchID){
+        $cmd = Command::all()->where('batchID','=', $batchID);
         $ingredient = Ingredients::all();
         $live_batch = Live_batch::all();
 
         $data = $this->notifyNewState();
 
         $status = $data['state'];
-
 
         $batch = DB::table('live_batches')->latest()->take(11)->get();
 
@@ -133,6 +135,7 @@ class BatchController extends Controller
             'product_id' => ['required'],
             'amount'=> ['required', 'max:65535'],
             'speed' =>  ['required', 'max: 600'],
+            'batchID' =>  ['required', 'max: 65535']
         ]);
         /*
         $livebatch = request()->validate([
@@ -148,7 +151,7 @@ class BatchController extends Controller
         newBatch::create($batch);
         //Live_batch::create($livebatch);
         session()->flash('message', 'Batch created successfully.');
-        return redirect()->to('/batch');
+        return redirect()->to('/batch/'.$batch['batchID']);
 
     }
 
@@ -160,11 +163,12 @@ class BatchController extends Controller
 
     function command(Command $cmd) {
         $cmd->command = \request()->get('cmd');
+        $cmd->batchID = \request()->segment(2);
         $cmd->save();
 
         $data = $this->notifyNewState();
 
-        return redirect()->to('/batch')->with('status', $data['state']);
+        return redirect()->to('/batch/'. $cmd->batchID)->with('status', $data['state']);
     }
 
     function ingredients() {

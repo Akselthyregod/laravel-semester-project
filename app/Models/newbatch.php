@@ -12,6 +12,7 @@ class newbatch extends Model
     protected $fillable=[
         'product_id',
         'amount',
-        'speed'
+        'speed',
+        'batchID'
     ];
 }

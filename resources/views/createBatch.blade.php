@@ -24,7 +24,7 @@
 <body>
 <h1>Create batch</h1>
 <a href="/">Back</a>
-<form action="/batch/create" method="post">
+<form action="/create" method="post">
     @csrf
     <div class ="dropdown-show">
         <label for="product_id">Choose a beer</label>
@@ -49,6 +49,13 @@
         <input type="number" id="input1" name="speed"> <br>
         @if($errors->has('speed'))
             <div class="form-text text-danger">{{ $errors->first('speed') }}</div>
+        @endif
+    </div>
+    <div>
+        <label>BatchID:</label>
+        <input type="number" id="batchID" name="batchID"> <br>
+        @if($errors->has('batchID'))
+            <div class="form-text text-danger">{{ $errors->first('batchID') }}</div>
         @endif
     </div>
     {{--

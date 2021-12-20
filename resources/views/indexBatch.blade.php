@@ -114,7 +114,7 @@
 @section('content')
 <h1>Batch</h1>
 <a href="/">Back</a>
-<form action="/batch" method="post">
+<form action="{{\Request::url()}}" method="post">
     @csrf
     <div class="btn-group">
         <button type="submit" name="cmd" value="1" class="btn btn-secondary btn-lg">Reset</button>

@@ -15,7 +15,7 @@
 <body>
 <h1>Beer brewing machine</h1>
 <div class="links">
-    <a href="/batch/create">Create batch</a> <br>
+    <a href="/create">Create batch</a> <br>
     <a href="/batch">View batch</a>
 </div>
 <br>
@@ -35,6 +35,7 @@
     <th scope="col">Type</th>
     <th scope="col">Bottles</th>
     <th scope="col">Speed</th>
+    <th scope="col">Batch ID</th>
     </thead>
     <tbody>
     @foreach($newbatch as $newbatch)
@@ -55,6 +56,13 @@
             @endif</td>
             <td>{{$newbatch->amount}}</td>
             <td>{{$newbatch->speed}}</td>
+
+
+            @if(DB::table('batch_report')->where('batchID', $newbatch->batchID)->exists())
+                <td><a href="/report/{{$newbatch->batchID}}">{{$newbatch->batchID}}</a></td>
+            @else
+                <td><a href="/batch/{{$newbatch->batchID}}">{{$newbatch->batchID}}</a></td>
+            @endif
         </tr>
     @endforeach
     </tbody>
