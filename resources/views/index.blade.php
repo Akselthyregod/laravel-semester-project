@@ -60,7 +60,7 @@
             @if(DB::table('batch_report')->where('batchID', $newbatch->batchID)->exists())
                 <td><a href="/report/{{$newbatch->batchID}}">{{$newbatch->batchID}}</a></td>
             @else
-                <td><a href="/batch/{{$newbatch->batchID}}">{{$newbatch->batchID}}</a></td>
+                <td>{{$newbatch->batchID}}<a href="/batch/{{$newbatch->batchID}}"> View batch</a></td>
             @endif
         </tr>
     @endforeach

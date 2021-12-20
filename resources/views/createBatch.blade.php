@@ -39,35 +39,25 @@
     </div>
     <div>
         <label>Amount of bottles:</label>
-        <input type="number" name="amount"> <br>
+        <input type="number" value="{{ old('amount') }}" name="amount"> <br>
         @if($errors->has('amount'))
             <div class="form-text text-danger">{{ $errors->first('amount') }}</div>
         @endif
     </div>
     <div>
         <label>Speed:</label>
-        <input type="number" id="input1" name="speed"> <br>
+        <input type="number" id="input1" value="{{ old('speed') }}" name="speed"> <br>
         @if($errors->has('speed'))
             <div class="form-text text-danger">{{ $errors->first('speed') }}</div>
         @endif
     </div>
     <div>
         <label>BatchID:</label>
-        <input type="number" id="batchID" name="batchID"> <br>
+        <input type="number" id="batchID" value="{{ old('batchID') }}" name="batchID"> <br>
         @if($errors->has('batchID'))
             <div class="form-text text-danger">{{ $errors->first('batchID') }}</div>
         @endif
     </div>
-    {{--
-    <div class="hidden">
-        <input type="hidden" name="prod_processed_count" value="0">
-        <input type="hidden" name="prod_defective_count" value="0">
-        <input type="hidden" name="humidity" value="0">
-        <input type="hidden" id="input2" name="mach_speed" value="">
-        <input type="hidden" name="temperature" value="0">
-        <input type="hidden" name="vibration" value="0">
-    </div>
-    --}}
     <div class="btn-group-vertical">
         <button type="submit" name="batch" class="btn btn-primary btn-lg">Create</button>
     </div>

@@ -120,7 +120,7 @@ class BatchController extends Controller
 
         $status = $data['state'];
 
-        $b = DB::table('live_batches')->latest()->take('1')->get();
+        $b = DB::table('live_batches')->latest()->take(1)->get();
 
         $batch = DB::table('live_batches')->latest()->take(11)->get();
 
@@ -142,7 +142,7 @@ class BatchController extends Controller
             'product_id' => ['required'],
             'amount'=> ['required', 'max:65535'],
             'speed' =>  ['required', 'max: 600'],
-            'batchID' =>  ['required', 'max: 65535']
+            'batchID' =>  ['required', 'unique:newbatches', 'max: 65535']
         ]);
         /*
         $livebatch = request()->validate([
