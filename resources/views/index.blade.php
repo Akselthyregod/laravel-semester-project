@@ -35,6 +35,7 @@
     <th scope="col">Bottles</th>
     <th scope="col">Speed</th>
     <th scope="col">Batch ID</th>
+    <th scope="col"> - </th>
     </thead>
     <tbody>
     @foreach($newbatch as $newbatch)
@@ -55,12 +56,12 @@
             @endif</td>
             <td>{{$newbatch->amount}}</td>
             <td>{{$newbatch->speed}}</td>
-
+            <td>{{$newbatch->batchID}}</td>
 
             @if(DB::table('batch_report')->where('batchID', $newbatch->batchID)->exists())
-                <td><a href="/report/{{$newbatch->batchID}}">{{$newbatch->batchID}}</a></td>
+                <td><a href="/report/{{$newbatch->batchID}}"> Report</a></td>
             @else
-                <td>{{$newbatch->batchID}}<a href="/batch/{{$newbatch->batchID}}"> View batch</a></td>
+                <td><a href="/batch/{{$newbatch->batchID}}"> Details</a></td>
             @endif
         </tr>
     @endforeach

@@ -168,6 +168,14 @@ class BatchController extends Controller
         return view("resultBatch", ['batch' => $batch]);
     }
 
+    function reportBatch(int $batchID){
+
+        $data = DB::table('batch_report')->where('batchID', $batchID)->get();
+
+
+        return view("resultBatch")->with( ['batchReport' => $data]);
+    }
+
     function command(Command $cmd) {
         $cmd->command = \request()->get('cmd');
         $cmd->batchID = \request()->segment(2);

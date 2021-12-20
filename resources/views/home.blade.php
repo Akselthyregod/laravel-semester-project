@@ -15,6 +15,13 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    @foreach($batchReport as $row)
+                        {{$row->id}}
+                    @endforeach
+
+
+
                 </div>
             </div>
         </div>

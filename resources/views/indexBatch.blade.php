@@ -221,7 +221,7 @@
 </table>
 <br>
 <div>
-    <a href="/batch/result">View batch report</a>
+    <a href="/report/{{request()->segment(2)}}"}}>View batch report</a>
 </div>
 <h5 class="status" id="status">[text]{{session('status')}}</h5>
 </body>

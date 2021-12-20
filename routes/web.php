@@ -29,6 +29,8 @@ Route::get('/batch', [\App\Http\Controllers\BatchController::class, 'indexBatch'
 
 Route::get('/batch/{batchID}', [\App\Http\Controllers\BatchController::class, 'indexBatch']);
 
+Route::get('/report/{batchID}', [\App\Http\Controllers\BatchController::class, 'reportBatch']);
+
 Route::post('/batch/{batchID}', [\App\Http\Controllers\BatchController::class, 'command'])->name('command');
 
 
