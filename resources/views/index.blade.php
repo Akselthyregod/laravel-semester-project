@@ -16,7 +16,6 @@
 <h1>Beer brewing machine</h1>
 <div class="links">
     <a href="/create">Create batch</a> <br>
-    <a href="/batch">View batch</a>
 </div>
 <br>
 @if(session()->has('message'))
