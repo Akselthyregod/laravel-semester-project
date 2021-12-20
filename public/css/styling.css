@@ -28,14 +28,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .status {
-    position: absolute; left: 720px; bottom: 855px;
-    animation: blinker 2s linear infinite;
-}
-@keyframes blinker {
-    50% {
-        opacity: 40%;
-        color: green;
-    }
+    position: absolute; left: 720px; bottom: 850px;
 }
 
 .header1 {

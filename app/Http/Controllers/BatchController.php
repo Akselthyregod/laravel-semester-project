@@ -27,10 +27,10 @@ class BatchController extends Controller
 
         return view("index", ['tests' => $tests, 'batch' => $batch, 'products' => $products, 'newbatch' => $newbatch]);
     }
-
+    //$batch = DB::table('live_batches')->latest()->take(11)->get();
     public function notifyNew(){
 
-        $live_batch = Live_batch::orderBy('created_at', 'desc')->first();
+        $live_batch = Live_batch::orderBy('created_at', 'desc')->first()->take(11)->get();
 
         $data = [   'new' => false,
                     'data' => $live_batch,
@@ -107,7 +107,6 @@ class BatchController extends Controller
         $cmd = Command::all();
         $ingredient = Ingredients::all();
         $live_batch = Live_batch::all();
-        $states = states::all();
 
         $data = $this->notifyNewState();
 
@@ -149,7 +148,7 @@ class BatchController extends Controller
         newBatch::create($batch);
         //Live_batch::create($livebatch);
         session()->flash('message', 'Batch created successfully.');
-        return redirect()->to('/');
+        return redirect()->to('/batch');
 
     }
 

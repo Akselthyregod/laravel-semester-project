@@ -35,7 +35,7 @@
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
-
+        {{--
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -67,9 +67,11 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
+
                                 </div>
                             </li>
                         @endguest
+                        --}}
                     </ul>
                 </div>
             </div>
