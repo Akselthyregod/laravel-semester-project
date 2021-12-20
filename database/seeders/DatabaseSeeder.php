@@ -23,7 +23,5 @@ class DatabaseSeeder extends Seeder
         $this->call(statesSeeder::class);
         $this->call(Live_batchSeeder::class);
         $this->call(IngredientsSeeder::class);
-        $this->call(newBatchSeeder::class);
-
     }
 }
