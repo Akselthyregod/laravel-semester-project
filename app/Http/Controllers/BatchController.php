@@ -28,10 +28,10 @@ class BatchController extends Controller
 
         return view("index", ['tests' => $tests, 'batch' => $batch, 'products' => $products, 'newbatch' => $newbatch]);
     }
-    //$batch = DB::table('live_batches')->latest()->take(11)->get();
+
     public function notifyNew(){
 
-        $live_batch = Live_batch::orderBy('created_at', 'desc')->first()->take(11)->get();
+        $live_batch = Live_batch::orderBy('created_at', 'desc')->first();
 
         $data = [   'new' => false,
                     'data' => $live_batch,
@@ -46,7 +46,13 @@ class BatchController extends Controller
         }
 
         session()->put('last_live_batch', $live_batch);
+    /*
+        $count = count($live_batch);
 
+        if($count > 10) {
+            //
+        }
+    */
         return $data;
     }
 
@@ -80,7 +86,7 @@ class BatchController extends Controller
         return $data;
 
     }
-
+//$batch = DB::table('live_batches')->latest()->take(11)->get();
     public function notifyNewState(){
 
         $data = ['new' => false,
@@ -109,15 +115,16 @@ class BatchController extends Controller
     function indexBatch(int $batchID){
         $cmd = Command::all()->where('batchID','=', $batchID);
         $ingredient = Ingredients::all();
-        $live_batch = Live_batch::all();
 
         $data = $this->notifyNewState();
 
         $status = $data['state'];
 
+        $b = DB::table('live_batches')->latest()->take('1')->get();
+
         $batch = DB::table('live_batches')->latest()->take(11)->get();
 
-        return view("indexBatch", ['batch' => $batch, 'cmd' => $cmd, 'ingredient' => $ingredient, 'status' => $status]);
+        return view("indexBatch", ['batch' => $batch, 'cmd' => $cmd, 'ingredient' => $ingredient, 'status' => $status, 'b' => $b]);
     }
 
     function view(){
