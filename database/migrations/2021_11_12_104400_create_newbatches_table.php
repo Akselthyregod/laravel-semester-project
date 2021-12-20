@@ -19,6 +19,7 @@ class CreateNewbatchesTable extends Migration
             $table->UnsignedBigInteger("product_id");
             $table ->integer("amount");
             $table->integer("speed");
+            $table->UnsignedBigInteger("batchID");
         });
     }
 
