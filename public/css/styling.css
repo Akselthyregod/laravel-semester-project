@@ -24,11 +24,11 @@ input[type=number]::-webkit-outer-spin-button {
 .btn-group {
     position: absolute;
     left: 155px;
-    top:  -65px;
+    top:  -72px;
 }
 
 .status {
-    position: absolute; left: 720px; bottom: 850px;
+    position: absolute; left: 720px; bottom: 858px;
 }
 
 .header1 {
@@ -37,4 +37,29 @@ input[type=number]::-webkit-outer-spin-button {
 
 .header2 {
     font-size: medium;
+}
+
+#columns {
+    position: absolute;
+    left: 160px;
+    bottom: 770px;
+}
+
+.displayvalue {
+    font-size: large;
+}
+
+#batch-box {
+
+}
+
+.row-height {
+    height: 50px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.col-md-1 {
+    background-color: darkgray;
+    border-radius: 15px 15px 15px 15px;
 }
