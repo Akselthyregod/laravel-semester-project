@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Batch;
 use App\Models\Command;
+use App\Models\Current_state;
 use App\Models\Ingredients;
 use App\Models\Java_test;
 use App\Models\Live_batch;
@@ -80,15 +81,15 @@ class BatchController extends Controller
     public function notifyNewState(){
 
         $data = ['new' => false,
-                'state' => "Unknown"
+                'state' => " "
                 ];
 
-        $live_batch = Live_batch::all();
-        $data_batch = $live_batch->pluck('stateID')->last();
+        $state = Current_state::all()->pluck('state')->last();
+
 
         $status = DB::table('states')
             ->select('state')
-            ->where('value', '=', $data_batch)
+            ->where('value', '=', $state)
             ->value('value');
 
         $current_status = session()->get('status', null);
@@ -108,12 +109,9 @@ class BatchController extends Controller
         $live_batch = Live_batch::all();
         $states = states::all();
 
-        $data = $live_batch->pluck('stateID')->last();
+        $data = $this->notifyNewState();
 
-        $status = DB::table('states')
-            ->select('state')
-            ->where('value', '=', $data)
-            ->value('value');
+        $status = $data['state'];
 
 
         $batch = DB::table('live_batches')->latest()->take(11)->get();
@@ -165,7 +163,9 @@ class BatchController extends Controller
         $cmd->command = \request()->get('cmd');
         $cmd->save();
 
-        return redirect()->to('/batch');
+        $data = $this->notifyNewState();
+
+        return redirect()->to('/batch')->with('status', $data['state']);
     }
 
     function ingredients() {
