@@ -17,7 +17,7 @@
 <div class="links">
     <a href="/create">Create batch</a> <br>
 </div>
-<br>
+{{-- <img class="beer" src="{{URL::asset('/images/beer2.jpg')}}" alt="..."> --}}
 @if(session()->has('message'))
     <div class="alert alert-success" role="alert">
         {{ session()->get('message') }}
@@ -27,7 +27,7 @@
 
 <h3>Batches: {{DB::table('newbatches')->count()}}</h3>
 
-<div class="container-sm" style="position:relative; right: 340px; top: 20px">
+<div class="createtable">
 <table class="table">
     <thead>
     <th scope="col">ID</th>

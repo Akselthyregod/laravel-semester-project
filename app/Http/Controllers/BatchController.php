@@ -119,15 +119,26 @@ class BatchController extends Controller
         $data = $this->notifyNewState();
 
         $status = $data['state'];
+        $id = $batchID;
 
-        $b = DB::table('live_batches')->latest()->take(1)->get();
+        $box = DB::table('live_batches')
+            ->where('batchID', $id)
+            ->latest()
+            ->take(1)
+            ->get();
 
-        $batch = DB::table('live_batches')->latest()->take(11)->get();
+        // $b = DB::table('live_batches')->latest()->take(1)->get();
+
+        $batch = DB::table('live_batches')
+            ->where('batchID', $id)
+            ->latest()
+            ->take(11)
+            ->get();
         $newBatch= newBatch::where('batchID',$batchID)->firstOrFail();
         $product= Product::where('type',$newBatch->product_id)->firstOrFail();
 
 
-        return view("indexBatch", ['batch' => $batch, 'cmd' => $cmd, 'ingredient' => $ingredient, 'status' => $status, 'b' => $b, 'newBatch'=> $newBatch,'product'=>$product]);
+        return view("indexBatch", ['batch' => $batch, 'cmd' => $cmd, 'ingredient' => $ingredient, 'status' => $status, 'box' => $box, 'newBatch'=> $newBatch,'product'=>$product]);
     }
 
     function view(){
@@ -187,6 +198,7 @@ class BatchController extends Controller
         $data = $this->notifyNewState();
 
         return redirect()->to('/batch/'. $cmd->batchID)->with('status', $data['state']);
+        //return back();
     }
 
     function ingredients() {

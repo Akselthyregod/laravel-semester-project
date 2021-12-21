@@ -18,6 +18,7 @@ class CreateLiveBatchesTable extends Migration
             $table->timestamps();
             $table->unsignedBigInteger('productID')->nullable();
             $table->unsignedBigInteger('stateID')->nullable();
+            $table->unsignedBigInteger('batchID')->nullable();
             $table->string("prod_processed_count");
             $table->string("prod_defective_count");
             $table->string("mach_speed");

@@ -19,7 +19,7 @@
 
                   if(result['new']) {
                       console.log('new state');
-                      document.getElementById("status").innerHTML = "State: " + result['state'];
+                      document.getElementById("status").innerHTML = result['state'];
                   }else{
                   }
                 })
@@ -171,24 +171,24 @@
 </form>
 <div id="columns" class="container">
     <div id="batch-box" class="row">
-        @foreach($b as $b)
+        @foreach($box as $box)
             <div class="col-md-1 row-height b1">
-                <span id="b1" class="displayvalue">{{$b->prod_processed_count}}</span>
+                <span id="b1" class="displayvalue">{{$box->prod_processed_count}}</span>
             </div>
             <div class="col-md-1 row-height b2">
-                <span id="b2" class="displayvalue">{{$b->prod_defective_count}}</span>
+                <span id="b2" class="displayvalue">{{$box->prod_defective_count}}</span>
             </div>
             <div class="col-md-1 row-height b3">
-                <span id="b3" class="displayvalue">{{$b->mach_speed}}</span>
+                <span id="b3" class="displayvalue">{{$box->mach_speed}}</span>
             </div>
             <div class="col-md-1 row-height b4">
-                <span id="b4" class="displayvalue">{{$b->humidity}}</span>
+                <span id="b4" class="displayvalue">{{$box->humidity}}</span>
             </div>
             <div class="col-md-1 row-height b5">
-                <span id="b5" class="displayvalue">{{$b->temperature}}</span>
+                <span id="b5" class="displayvalue">{{$box->temperature}}</span>
             </div>
             <div class="col-md-1 row-height b6">
-                <span id="b6" class="displayvalue">{{$b->vibration}}</span>
+                <span id="b6" class="displayvalue">{{$box->vibration}}</span>
             </div>
         @endforeach
     </div>
@@ -212,9 +212,7 @@
 <br> <br>{{-- more ugly line breaks--}}
 <table class="table">
     <thead>
-    <th scope="col">ID</th>
-    <th scope="col">Created at</th>
-    <th scope="col">Updated at</th>
+    <th scope="col">Timestamp</th>
     <th scope="col">Processed</th>
     <th scope="col">Defective</th>
     <th scope="col">Speed</th>
@@ -225,8 +223,6 @@
     <tbody id="batch-body">
     @foreach($batch as $batch)
         <tr>
-            <th scope="row">{{$batch->id}}</th>
-            <td>{{$batch->created_at}}</td>
             <td>{{$batch->updated_at}}</td>
             <td>{{$batch->prod_processed_count}}</td>
             <td>{{$batch->prod_defective_count}}</td>

@@ -10,7 +10,6 @@
     <title>Create batch</title>
     <link rel="stylesheet" href="{{URL::asset('css/styling.css')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 </head>
 @section('content')
 <body>
@@ -21,12 +20,13 @@
     <div class ="dropdown-show">
         <label for="product_id">Choose a beer</label>
             <select name="product_id" id="product_id">
-                <option value="0">Pilsner</option>
-                <option value="1">Wheat</option>
-                <option value="2">IPA</option>
-                <option value="3">Stout</option>
-                <option value="4">Ale</option>
-                <option value="5">Alcohol Free</option>
+                <option></option>
+                <option id="pilsner" value="0">Pilsner</option>
+                <option id="wheat" value="1">Wheat</option>
+                <option id="ipa" value="2">IPA</option>
+                <option id="stout" value="3">Stout</option>
+                <option id="ale" value="4">Ale</option>
+                <option id="af" value="5">Alcohol Free</option>
             </select>
     </div>
     <div>

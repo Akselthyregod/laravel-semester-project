@@ -31,8 +31,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 .status {
     position: absolute;
-    right: 300px;
-    bottom: 680px;
+    right: 230px;
+    top: 180px;
     font-size: x-large;
 }
 
@@ -109,8 +109,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 .state {
     position: absolute;
-    width: 120px;
-    right: 180px;
+    width: 122px;
+    right: 100px;
     top: 140px;
 }
 
@@ -175,7 +175,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .title5 {
     position: absolute;
-    left: 1252px;
+    left: 1246px;
     top: 172px;
 }
 
@@ -187,11 +187,25 @@ input[type=number]::-webkit-outer-spin-button {
 
 .title7 {
     position: absolute;
-    right: 215px;
+    right: 145px;
     top: 235px;
 }
 .dataList{
     position: absolute;
     top: 145px;
     left: 50px;
+}
+
+.beer {
+    position: absolute;
+    width: 850px;
+    right: 150px;
+    bottom: 165px;
+}
+
+.createtable {
+    position: absolute;
+    left: 20px;
+    top: 250px;
+    width: 700px;
 }
