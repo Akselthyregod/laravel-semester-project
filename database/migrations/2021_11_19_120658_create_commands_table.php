@@ -17,6 +17,7 @@ class CreateCommandsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->integer("command");
+            $table->unsignedBigInteger('batchID');
         });
     }
 
