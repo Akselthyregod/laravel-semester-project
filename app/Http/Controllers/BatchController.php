@@ -123,8 +123,11 @@ class BatchController extends Controller
         $b = DB::table('live_batches')->latest()->take(1)->get();
 
         $batch = DB::table('live_batches')->latest()->take(11)->get();
+        $newBatch= newBatch::where('batchID',$batchID)->firstOrFail();
+        $product= Product::where('type',$newBatch->product_id)->firstOrFail();
 
-        return view("indexBatch", ['batch' => $batch, 'cmd' => $cmd, 'ingredient' => $ingredient, 'status' => $status, 'b' => $b]);
+
+        return view("indexBatch", ['batch' => $batch, 'cmd' => $cmd, 'ingredient' => $ingredient, 'status' => $status, 'b' => $b, 'newBatch'=> $newBatch,'product'=>$product]);
     }
 
     function view(){

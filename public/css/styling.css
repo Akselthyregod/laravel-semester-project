@@ -24,12 +24,15 @@ input[type=number]::-webkit-outer-spin-button {
 
 .btn-group {
     position: absolute;
-    left: 155px;
-    top:  -72px;
+    left: 0px;
+    top:  115px;
+
 }
 
 .status {
-    position: absolute; left: 300px; bottom: 746px;
+    position: absolute;
+    right: 300px;
+    bottom: 680px;
     font-size: x-large;
 }
 
@@ -107,8 +110,8 @@ input[type=number]::-webkit-outer-spin-button {
 .state {
     position: absolute;
     width: 120px;
-    left: 180px;
-    top: 170px;
+    right: 180px;
+    top: 140px;
 }
 
 .b1 {
@@ -184,6 +187,11 @@ input[type=number]::-webkit-outer-spin-button {
 
 .title7 {
     position: absolute;
-    left: 210px;
-    top: 257px;
+    right: 215px;
+    top: 235px;
+}
+.dataList{
+    position: absolute;
+    top: 145px;
+    left: 50px;
 }

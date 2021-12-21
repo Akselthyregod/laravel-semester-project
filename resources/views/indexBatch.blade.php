@@ -139,16 +139,34 @@
     <h5 class="title5">Temperature</h5>
     <h5 class="title6">Vibration</h5>
     <h5 class="title7">State</h5>
-<h1>Batch</h1>
+    <ul class="dataList" style="list-style: none;">
+        <li>
+            <h5>
+            Product: {{$product->description}}
+            </h5>
+
+        </li>
+        <li>
+            <h5>
+            Planned amount of products: {{$newBatch->amount}}
+            </h5>
+        </li>
+        <li>
+            <h5>
+            Planned machine speed: {{$newBatch->speed}}
+            </h5>
+        </li>
+    </ul>
+<h1>Batch: {{$newBatch->batchID}}</h1>
 <a href="/">Back</a>
 <form action="{{\Request::url()}}" method="post">
     @csrf
     <div class="btn-group">
-        <button onclick="window.location.reload()" type="submit" name="cmd" value="1" class="btn btn-secondary btn-lg">Reset</button>
-        <button onclick="window.location.reload()" type="submit" name="cmd" value="2" class="btn btn-success btn-lg">Start</button>
-        <button onclick="window.location.reload()" type="submit" name="cmd" value="3" class="btn btn-warning btn-lg">Stop</button>
-        <button onclick="window.location.reload()" type="submit" name="cmd" value="4" class="btn btn-danger btn-lg">Abort</button>
-        <button onclick="window.location.reload()" type="submit" name="cmd" value="5" class="btn btn-dark btn-lg">Clear</button>
+        <button  type="submit" name="cmd" value="1" class="btn btn-secondary btn-lg">Reset</button>
+        <button  type="submit" name="cmd" value="2" class="btn btn-success btn-lg">Start</button>
+        <button  type="submit" name="cmd" value="3" class="btn btn-warning btn-lg">Stop</button>
+        <button  type="submit" name="cmd" value="4" class="btn btn-danger btn-lg">Abort</button>
+        <button  type="submit" name="cmd" value="5" class="btn btn-dark btn-lg">Clear</button>
     </div>
 </form>
 <div id="columns" class="container">
@@ -221,6 +239,7 @@
     </tbody>
 </table>
 <br>
+
 <div>
     <a href="/report/{{request()->segment(2)}}"}}>View batch report</a>
 </div>

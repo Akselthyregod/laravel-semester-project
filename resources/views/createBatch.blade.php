@@ -10,15 +10,7 @@
     <title>Create batch</title>
     <link rel="stylesheet" href="{{URL::asset('css/styling.css')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    {{--
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#input1').change(function () {
-                $('#input2').val($(this).val());
-            });
-        });
-    </script>
-    --}}
+
 </head>
 @section('content')
 <body>
