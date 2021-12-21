@@ -178,7 +178,12 @@ input[type=number]::-webkit-outer-spin-button {
 
 .title6 {
     position: absolute;
-    position: absolute;
     left: 1260px;
     top: 296px;
+}
+
+.title7 {
+    position: absolute;
+    left: 210px;
+    top: 257px;
 }
