@@ -39,23 +39,19 @@
                         var body = document.getElementById("batch-body");
                         var row = body.insertRow(0);
 
-                        var id                      = row.insertCell(0);
-                        id.innerHTML                = result['id'];
-                        var created_at              = row.insertCell(1);
-                        created_at.innerHTML                  = result['created'];
-                        var updated_at              = row.insertCell(2);
+                        var updated_at              = row.insertCell(0);
                         updated_at.innerHTML                  = result['updated'];
-                        var prod_processed_count    = row.insertCell(3);
+                        var prod_processed_count    = row.insertCell(1);
                         prod_processed_count.innerHTML        = result['data'].prod_processed_count;
-                        var prod_defective_count    = row.insertCell(4);
+                        var prod_defective_count    = row.insertCell(2);
                         prod_defective_count.innerHTML        = result['data'].prod_defective_count;
-                        var mach_speed              = row.insertCell(5);
+                        var mach_speed              = row.insertCell(3);
                         mach_speed.innerHTML                  = result['data'].mach_speed;
-                        var humidity                = row.insertCell(6);
+                        var humidity                = row.insertCell(4);
                         humidity.innerHTML      = result['data'].humidity;
-                        var temperature             = row.insertCell(7);
+                        var temperature             = row.insertCell(5);
                         temperature.innerHTML = result['data'].temperature;
-                        var vibration               = row.insertCell(8);
+                        var vibration               = row.insertCell(6);
                         vibration.innerHTML = result['data'].vibration;
 
                         let b1 = document.getElementById("b1");
