@@ -11,7 +11,8 @@ class Product extends Model
     use HasFactory;
     protected $fillable=[
 
-        'description'
+        'description',
+        'optimal_speed'
     ];
 
 }

@@ -20,7 +20,6 @@
     <div class ="dropdown-show">
         <label for="product_id">Choose a beer</label>
             <select name="product_id" id="product_id">
-                <option></option>
                 <option id="pilsner" value="0">Pilsner</option>
                 <option id="wheat" value="1">Wheat</option>
                 <option id="ipa" value="2">IPA</option>
@@ -28,6 +27,12 @@
                 <option id="ale" value="4">Ale</option>
                 <option id="af" value="5">Alcohol Free</option>
             </select>
+    </div>
+    <div class="optimal">
+        <h2>Optimal speed</h2>
+        @foreach($products as $product)
+        <h5>{{$product->description}}: {{$product->optimal_speed}}</h5>
+        @endforeach
     </div>
     <div>
         <label>Amount of bottles:</label>

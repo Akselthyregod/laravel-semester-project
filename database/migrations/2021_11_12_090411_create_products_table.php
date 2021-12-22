@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();//subtract 10 to get the intended id
             $table->timestamps();
             $table->string("description");
+            $table->integer("optimal_speed");
             $table->unsignedBigInteger('type')->unique();
         });
     }

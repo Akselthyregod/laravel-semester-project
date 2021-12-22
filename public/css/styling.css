@@ -209,3 +209,9 @@ input[type=number]::-webkit-outer-spin-button {
     top: 250px;
     width: 700px;
 }
+
+.optimal {
+    position: absolute;
+    left: 450px;
+    top: 85px;
+}

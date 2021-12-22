@@ -17,32 +17,38 @@ class ProductSeeder extends Seeder
         Product::create([
 
             'description'=>'Pilsner',
-            'type' => 0
+            'type' => 0,
+            'optimal_speed' => 99
         ]);
         Product::create([
 
             'description'=>'Wheat',
-            'type' => 1
+            'type' => 1,
+            'optimal_speed' => 100
         ]);
         Product::create([
 
             'description'=>'IPA',
-            'type' => 2
+            'type' => 2,
+            'optimal_speed' => 101
         ]);
         Product::create([
 
             'description'=>'Stout',
-            'type' => 3
+            'type' => 3,
+            'optimal_speed' => 102
         ]);
         Product::create([
 
             'description'=>'Ale',
-            'type' => 4
+            'type' => 4,
+            'optimal_speed' => 103
         ]);
         Product::create([
 
             'description'=>'Alcohol Free',
-            'type' => 5
+            'type' => 5,
+            'optimal_speed' => 104
         ]);
     }
 }

@@ -196,7 +196,9 @@ class BatchController extends Controller
         $cmd->save();
 
         $data = $this->notifyNewState();
+
         sleep(2);
+
         return redirect()->to('/batch/'. $cmd->batchID)->with('status', $data['state']);
         //return back();
     }
